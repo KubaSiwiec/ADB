@@ -1,0 +1,10 @@
+{% extends "ADB/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <h1>{{ user.username }}</h1>
+        <div class="border-top pt-3">
+            <h2>Users bookings</h2>
+        </div>
+    </div>
+{% endblock content %}
