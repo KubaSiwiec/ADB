@@ -1,6 +1,16 @@
 {% extends "ADB/base.html" %}
 {% block content %}
-    <div class="content-section">
-        Hi!
-    </div>
+    <H1>Upcomming movies</H1>
+
+    {% for movie in movies %}
+        <article class="media content-section"></article>
+          <div class="media-body">
+            <h2><a class="article-title" href="{% url 'movie-detail' movie.id %}">{{ movie.title }}</a></h2>
+            <div class="article-metadata">
+              <small class="text-muted">{{ movie.date|date:"F d, Y" }}</small>
+            </div>
+            <p class="article-content">{{ movie.description }}</p>
+          </div>
+        </article>
+    {% endfor %}
 {% endblock content %}
