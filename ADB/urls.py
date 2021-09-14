@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
+
 from Users import views as User_views
 from django.contrib.auth import views as auth_views
 
@@ -28,5 +30,7 @@ urlpatterns = [
     path('user_bookings/', User_views.BookingsListView.as_view(template_name='Users/user_bookings.html'), name='bookings'),
     path('user_bookings/<int:pk>/', User_views.BookingDetailView.as_view(template_name='Users/booking.html'), name='booking-detail'),
     path('user_bookings/<int:pk>/delete/', User_views.DeleteMe.as_view(template_name='Users/deleteconfirmation.html'), name='delete-view'),
+    path('', RedirectView.as_view(url='/booking/', permanent=True)),
+    path('home/', RedirectView.as_view(url='/booking/', permanent=True))
 ]
 
