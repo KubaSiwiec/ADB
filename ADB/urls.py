@@ -25,5 +25,8 @@ urlpatterns = [
     path('profile/', User_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='Users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='Users/logout.html'), name='logout'),
+    path('user_bookings/', User_views.BookingsListView.as_view(template_name='Users/user_bookings.html'), name='bookings'),
+    path('user_bookings/<int:pk>/', User_views.BookingDetailView.as_view(template_name='Users/booking.html'), name='booking-detail'),
+    path('user_bookings/<int:pk>/delete/', User_views.DeleteMe.as_view(template_name='Users/deleteconfirmation.html'), name='delete-view'),
 ]
 

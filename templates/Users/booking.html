@@ -1,0 +1,14 @@
+{% extends "ADB/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <article class="media content-section">
+    <div>
+      <h2 class="article-title">{{ object.movie_id }}</h2>
+      <h4 class="article-title">{{ object.seat_id }}</h4>
+    </div>
+  </article>
+    <form action="" method="POST">
+      {% csrf_token %}
+        <a href="{% url 'delete-view' object.pk %}"><input class="btn btn-default btn-danger" name="delete" type="submit" value="Delete booking"/></a>
+    </form>
+{% endblock content %}

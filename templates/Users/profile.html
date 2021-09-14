@@ -4,8 +4,8 @@
     <div class="content-section">
         <h1>{{ user.username }}</h1>
         {{ user.email }}
-        <div class="border-top pt-3">
-            <h2>Your bookings:</h2>
+        <a class="border-top pt-3">
+            <a href="{% url 'bookings' %}"><h2>Your bookings</h2></a>
         </div>
     </div>
     <div>

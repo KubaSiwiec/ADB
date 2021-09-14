@@ -1,0 +1,14 @@
+{% extends "ADB/base.html" %}
+{% block content %}
+    <H1>Incoming movies</H1>
+    {% for booking in bookings %}
+        <article class="media content-section"></article>
+          <div class="media-body">
+            <h3><a class="article-title" href="{% url 'booking-detail' booking.pk %}">Title: {{ booking.movie_id }}</a></h3>
+            <div class="article-metadata">
+              Seat: {{ booking.seat_id }}
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
