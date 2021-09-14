@@ -49,3 +49,5 @@ To get to registration page and then log in:
 - Run server with python manage.py runserver
 - Go to http://127.0.0.1:8000/register/
 - After registration log in when redirected to login page
+
+File 'Select movie_seat to change _ Django site admin - Google Chrome 2021-09-15 00-20-19.mp4' has a video of using application it could be helpful, but I can't record soung on my PC for some reason 
