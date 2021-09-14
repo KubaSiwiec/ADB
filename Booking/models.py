@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+# from .booking_functions.availability import get_free_seats
 
 # Create your models here.
 class Room(models.Model):
@@ -23,6 +24,8 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+
 
 class Seat(models.Model):
     name = models.CharField(max_length=4, default="A_1A")

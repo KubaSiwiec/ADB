@@ -83,3 +83,10 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
+table.fixed {
+  table-layout:fixed;
+}
+table.fixed td {
+  overflow: hidden;
+}
+
