@@ -1,8 +1,18 @@
 from django import forms
-from .models import Movies, Seats, Movie_seats, Bookings
+from .models import Movie, Seat, Movie_seat, Booking
+
+
 class BookSeatForm(forms.ModelForm):
     email = forms.EmailField()
 
     class Meta:
-        model = Bookings
+        model = Booking
         fields = ['seat_id']
+
+class SeatForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = Seat
+        fields = ['row', 'column']
+

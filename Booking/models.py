@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 # Create your models here.
-class Rooms(models.Model):
+class Room(models.Model):
     name = models.CharField(max_length=100)
     number_of_seats = models.IntegerField()
     number_of_rows = models.IntegerField()
@@ -11,7 +11,7 @@ class Rooms(models.Model):
     def __str__(self):
         return self.name
 
-class Movies(models.Model):
+class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     date = models.DateField()
@@ -19,22 +19,25 @@ class Movies(models.Model):
     director = models.CharField(max_length=100)
     scriptwriter = models.CharField(max_length=100)
     studio = models.CharField(max_length=100)
-    room_id = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+    room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
 
-class Seats(models.Model):
+class Seat(models.Model):
+    name = models.CharField(max_length=4, default="A_1A")
     row = models.IntegerField()
     column = models.CharField(max_length=1)
-    room_id = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+    room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
-class Movie_seats(models.Model):
-    movie_id = models.ForeignKey(Movies, on_delete=models.CASCADE)
-    seat_id = models.ForeignKey(Seats, on_delete=models.CASCADE)
+class Movie_seat(models.Model):
+    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)
 
 
-class Bookings(models.Model):
-    movie_id = models.ForeignKey(Movies, on_delete=models.CASCADE)
-    seat_id = models.ForeignKey(Seats, on_delete=models.CASCADE)
+class Booking(models.Model):
+    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)
     user_id = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)

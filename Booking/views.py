@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
-from .models import Movies
+from .models import Movie
 from .forms import BookSeatForm
 
 # Create your views here.
@@ -15,13 +15,13 @@ def home(request):
 
 # lists all movies
 class MoviesListView(ListView):
-    model = Movies
+    model = Movie
     template_name = 'Booking/home.html'
     context_object_name = 'movies'
     ordering = ['date']
 
 class MoviesDetailView(DetailView, FormMixin):
-    model = Movies
+    model = Movie
     template_name = 'Booking/movie-detail.html'
     form_class = BookSeatForm
 
