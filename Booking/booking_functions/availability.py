@@ -36,19 +36,16 @@ def print_seats(movie_title: str):
     free_seats_names = []
     for free_seat in free_seats:
         free_seats_names.append(free_seat.name)
-    # print(free_seats)
 
     for row in range(1, room.number_of_rows + 1):
         room_seats_string += '<tr height="30px"><td>'+ str(row) + '</td>'
         for column_int in range(room.number_of_columns):
             column = chr(column_int + 65)
             seat_name = room.name[-1] + '_' + column + str(row)
-            # print(seat_name)
             if seat_name in free_seats_names:
                 room_seats_string += '<td bgcolor="green"></td>'
             else:
-                room_seats_string += '<td bgcolor="red">X</td>'
+                room_seats_string += '<td bgcolor="red"></td>'
         room_seats_string += '</tr>'
     room_seats_string += '</tbody></table>'
-    print(room_seats_string)
     return room_seats_string

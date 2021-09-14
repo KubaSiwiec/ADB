@@ -46,3 +46,6 @@ class Booking(models.Model):
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)
     user_id = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.seat_id.name) + ', ' + str(self.user_id.username) + ', ' + str(self.movie_id.title)
