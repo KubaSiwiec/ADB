@@ -38,3 +38,14 @@ The application makes it possible to:
 - See map of free seats when clicking at the movie
 - Book seat, redirect to profile. The seat that was booked is filtered and no loger accessible for the same movie
 - User can delete their own bookings
+
+To access admin console:
+- Write in terminal from the ADB folder:
+  python manage.py createsuperuser
+  and choose username and password
+- Go to http://127.0.0.1:8000/admin/
+
+To get to registration page and then log in:
+- Run server with python manage.py runserver
+- Go to http://127.0.0.1:8000/register/
+- After registration log in when redirected to login page
