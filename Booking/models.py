@@ -38,6 +38,7 @@ class Seat(models.Model):
 class Movie_seat(models.Model):
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)
+    busy = models.BooleanField(default=False)
     def __str__(self):
         return str(self.seat_id.name)
 
