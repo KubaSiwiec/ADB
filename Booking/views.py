@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from .models import Movie
 from .forms import BookSeatForm
+from .booking_functions.availability import get_free_seats
 
 # Create your views here.
 def home(request):
